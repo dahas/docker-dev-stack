@@ -43,7 +43,7 @@ The value for the **host** entry must be the name of the **service** as defined 
 ##### What is ...
 
 `command: ["./wait-for-it.sh", "db:3306", "--", "npm", "start"]`  
-We need this little shell script to asure that the database container has already been set up before we connect to it. Otherwise our node app would run into an error.  
+We need this little shell script to ensure that the database container has already been set up before we connect to it. Otherwise our node app would run into an error.  
 
 ##### And what is ...
 `command: --default-authentication-plugin=mysql_native_password`  
