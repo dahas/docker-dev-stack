@@ -23,15 +23,17 @@ This is a template for docker-compose. It helps setting up an environment to dev
 
 ## Connect to MySQL database within another continer
 
+The value for the **host** entry must be the name of the **service** as defined in docker-compose.yml.
+
 ##### Example 1 - NodeJS
 
     var mysql = require('mysql');
-    var db = mysql.createConnection({
-        host: 'db', // <-- Name of the service in docker-compose.yml
+    var connection = mysql.createConnection({
+        host: 'name_of_service',
         user: 'root',
         password: ''
     });
 
 ##### Example 2 - PHP
 
-    $db = mysqli_connect('db', 'root', '');
+    $connection = mysqli_connect('name_of_service', 'root', '');
