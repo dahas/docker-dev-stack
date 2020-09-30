@@ -8,18 +8,18 @@ This is a template for docker-compose. It helps setting up an environment to dev
 
 ## Usage
 
-1. Create a folder for your project:
-`mkdir my_project`
-`cd my_project`
-&nbsp;
-1. Clone resources from GitHub into the newly created folder:
-`$ git clone https://github.com/dahas/docker-dev-stack.git .`
-&nbsp;
-1. Run the project:
-`$ docker-compose up`
-&nbsp;
-1. Check it out in the web browser:
-`localhost:9090`
+1. Create a folder for your project:  
+`mkdir my_project`  
+`cd my_project`  
+&nbsp;  
+1. Clone resources from GitHub into the newly created folder:  
+`$ git clone https://github.com/dahas/docker-dev-stack.git .`  
+&nbsp;  
+1. Run the project:  
+`$ docker-compose up`  
+&nbsp;  
+1. Check it out in the web browser:  
+`localhost:9090`  
 
 ## Connect to MySQL database within another continer
 
