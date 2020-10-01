@@ -1,7 +1,7 @@
 version: "3.9"
 services:
   db:
-    # Rename to "your_username/mysql"
+    # Change image name to "your_username/mysql"
     image: dahas68/mysql
     # Mandatory for authentication
     command: --default-authentication-plugin=mysql_native_password
@@ -15,9 +15,9 @@ services:
     # Connect locally to MySQL in container using localhost:9906 
     ports:
       - "9906:3306"
-
+      
   node:
-    # Rename to "your_username/nodejs"
+    # Change image name to "your_username/nodejs"
     image: dahas68/nodeapp
     build:
       context: .
@@ -33,3 +33,21 @@ services:
      - db
     # Wait until db is ready to connect
     command: ["./wait-for-it.sh", "db:3306", "--", "npm", "start"]
+
+  # php:
+  #   # Change image name to "your_username/nodejs"
+  #   image: dahas68/phpapp
+  #   build:
+  #     context: .
+  #     dockerfile: docker/PHP.Dockerfile
+  #   # Launch app in browser using localhost:9000
+  #   ports:
+  #     - "9000:80"
+  #   # Symlink container to local volume
+  #   volumes:
+  #     - ./:/var/www/html
+  #   # Create db container first 
+  #   links:
+  #    - db
+  #   # Wait until db is ready to connect
+  #   # command: ["./wait-for-it.sh", "db:3306", "--", "apachectl", "restart"]

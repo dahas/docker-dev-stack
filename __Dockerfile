@@ -1,0 +1,30 @@
+FROM ubuntu:latest
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update -y
+RUN apt-get upgrade -y
+
+RUN apt-get -yqq install curl
+
+# Install NodeJS
+RUN curl -sL https://deb.nodesource.com/setup_10.x | bash
+RUN apt-get install -yq nodejs
+
+# Install MySQL
+RUN apt-get install -yq mysql-server
+ENV MYSQL_ALLOW_EMPTY_PASSWORD 'yes'
+ENV MYSQL_ROOT_PASSWORD ''
+ENV MYSQL_USER root
+ENV MYSQL_PASSWORD ''
+
+# Copy source code
+WORKDIR /opt/app
+COPY . .
+
+# fetch app specific deps
+# RUN npm install
+
+EXPOSE 8080
+EXPOSE 3306
+
+CMD ["npm", "start"]

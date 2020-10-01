@@ -15,14 +15,17 @@ var db = mysql.createConnection({
   password: ''
 });
 
-// db.connect(function(err) {
-//   if (err) throw err;
-//   console.log("Connected to MySQL!");
-//   db.query("CREATE DATABASE myDockerTest", function (err, result) {
-//     if (err) throw err;
-//     console.log("Database 'myDockerTest' created!");
-//   });
-// });
+db.connect(function(err) {
+  if (err) {
+    console.log("Connection failed!");
+  } else {
+    console.log("Connected to MySQL!");
+    // db.query("CREATE DATABASE myDockerTest", function (err, result) {
+    //   if (err) throw err;
+    //   console.log("Database 'myDockerTest' created!");
+    // });
+  }
+});
 
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
